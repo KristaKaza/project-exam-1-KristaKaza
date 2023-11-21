@@ -1,0 +1,228 @@
+.meet-me-post h2 {
+  font-family: "Poppins", cursive;
+  font-size: 22px;
+  font-weight: 300;
+  color: #cc4702;
+  border: 1px solid #cc4702;
+  border-radius: 37px;
+  padding: 11px 21px;
+  background: white;
+}
+
+.centered-subtitle {
+  position: relative;
+  left: 39%;
+  width: fit-content;
+  transform: translate(-50%, 74%);
+}
+
+.me-cookie {
+  font-family: "Cookie", cursive;
+  font-size: 39px;
+  font-weight: 300;
+}
+
+.meet-me-post p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 2;
+  font-family: "Poppins", cursive;
+  width: 30%;
+  padding: 26px;
+  margin: 0px 0px;
+  text-align: center;
+  border: rgba(213, 220, 204, 1);
+  background: rgba(213, 220, 204, 1);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  border-radius: 5px 0 0 5px;
+}
+
+.personal-text-image img {
+  width: 25%;
+  object-fit: cover;
+  border-radius: 0 5px 5px 0;
+}
+
+.personal-text-image {
+  display: flex;
+  justify-content: center;
+}
+
+.fav-places-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18px;
+}
+
+.fav-places-box h2 {
+  font-family: "Cookie", cursive;
+  font-size: 45px;
+  font-weight: 300;
+  color: #ca7b52;
+}
+
+.fav-container,
+.fav-container-2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 167px;
+  background: rgba(234, 223, 203, 0.65);
+  padding: 10px 150px;
+}
+
+.fav-container-2 {
+  padding: 10px 121.5px;
+}
+
+.list-row {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  list-style: none;
+  line-height: 2;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: "Poppins", cursive;
+}
+
+.list-row h3 {
+  font-family: "Cookie", cursive;
+  font-size: 40px;
+  font-weight: 300;
+  color: #ca7b52;
+  margin: 0;
+}
+
+.subscribe-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 49px;
+}
+
+.images-together {
+  position: relative;
+  text-align: center;
+  right: 0;
+  top: 35px;
+}
+
+.subscribe-image {
+  width: 39%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.subscribe-box {
+  position: absolute;
+  top: 48%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+}
+
+.subscribe-box h3 {
+  font-size: 70px;
+  font-family: "Cookie", cursive;
+  font-weight: 300;
+  color: white;
+  margin: 0;
+}
+
+.subscribe-box p {
+  font-size: 12px;
+  font-family: "Poppins", cursive;
+  font-weight: 300;
+  color: white;
+  width: 190px;
+}
+
+.sign-up {
+  border: 2px solid #000;
+  background: rgba(255, 255, 255, 0.64);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-up h4 {
+  font-size: 15px;
+  color: black;
+}
+
+.sign-up h5 {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 10px 25px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.side-image {
+  width: 16%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 40px;
+  position: relative;
+  right: 40px;
+  top: 35px;
+  transform: rotate(10.76deg);
+}
+
+@media screen and (max-width: 900px) {
+  .centered-subtitle {
+    transform: translate(-50%, 48%);
+  }
+
+  .personal-text-image {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .meet-me-post p {
+    max-width: 19em;
+    width: auto;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .personal-text-image img {
+    width: 19em;
+    height: auto;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .fav-places-box {
+    display: block;
+  }
+
+  .fav-places-box h2 {
+    padding-left: 14px;
+  }
+
+  .fav-container,
+  .fav-container-2 {
+    justify-content: center;
+    column-gap: 50px;
+    padding: 10px;
+  }
+
+  .subscribe-image {
+    width: 100%;
+  }
+
+  .side-image {
+    display: none;
+  }
+
+  .subscribe-box {
+    left: 50%;
+  }
+}

@@ -1,0 +1,29 @@
+#blogContent figure img {
+  max-width: 50%;
+  height: auto;
+}
+
+#blogContent figure {
+  margin-bottom: 5px;
+}
+
+#blogContent figure {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  height: auto;
+}
+
+#blogContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.wp-block-image img,
+.size-large img,
+.is-resized img {
+  width: 100%;
+  height: auto;
+}

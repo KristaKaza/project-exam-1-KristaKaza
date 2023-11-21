@@ -1,0 +1,117 @@
+.introduction-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.introduction-container h1 {
+  font-size: 50px;
+  font-family: "Cookie", cursive;
+  font-weight: 300;
+  background-color: rgba(201, 220, 227, 0.48);
+  color: #70a6be;
+  padding: 10px 270px;
+  margin-bottom: 10px;
+}
+
+.introduction-container p {
+  width: 43em;
+  text-align: justify;
+  font-size: 17px;
+}
+
+.latest-posts-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.latest-posts-carousel h2 {
+  font-size: 17px;
+}
+
+.carousel img {
+  width: 308px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 30px;
+  align-items: center;
+}
+
+.latest-posts-carousel h3 {
+  font-size: 70px;
+  font-family: "Cookie", cursive;
+  font-weight: 100;
+  color: #0e93bb;
+  margin: 50px 0 0 0;
+}
+
+.img-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(208, 208, 208, 0.25);
+}
+
+.img-text p {
+  width: 20em;
+  max-width: 20em;
+  font-size: 14px;
+  padding: 5px 18px;
+  text-align: left;
+}
+
+.img-text h2 {
+  margin-bottom: 0;
+}
+
+.img-text button {
+  position: relative;
+  left: 89px;
+  background-color: unset;
+  border: 0;
+  font-size: 16px;
+  padding: 0 20px;
+  color: #000e17;
+  font-family: Poppins;
+}
+
+.img-text button:hover {
+  border-bottom: 1px solid black;
+  transition: ease-in 0.1s;
+  cursor: pointer;
+}
+
+.arrows {
+  font-size: 35px;
+}
+
+@media screen and (max-width: 900px) {
+  .introduction-container h1 {
+    font-size: 40px;
+    padding: 10px 50px;
+  }
+
+  .introduction-container p {
+    width: auto;
+    padding: 0 25px;
+  }
+
+  .latest-posts-carousel h3 {
+    font-size: 50px;
+    padding: 0 10px;
+  }
+
+  .arrows {
+    display: none;
+  }
+}
