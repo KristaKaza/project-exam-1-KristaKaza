@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/contact.css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="/js/contact-form.js" defer></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     </style>
@@ -50,11 +51,14 @@
             <div class="post-request-form">
                 <h3>NAME</h3>
                 <input type="text" name="name" id="name">
+                <p id="nameError" class="error"></p>
                 <h3>EMAIL</h3>
                 <input type="email" name="email" id="email">
+                <p id="emailError" class="error"></p>
                 <h3>MESSAGE</h3>
                 <textarea name="message" id="message" cols="30" rows="10"></textarea>
-                <h3 class="submit-btn">SUBMIT</h3>
+                <p id="messageError" class="error"></p>
+                <h3 class="submit-btn" id="submitButton">SUBMIT</h3>
             </div>
         </div>
     </main>

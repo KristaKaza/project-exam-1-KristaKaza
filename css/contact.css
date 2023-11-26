@@ -1,6 +1,6 @@
 .text-inside-image img {
   width: 50%;
-  height: 40em;
+  height: 640px;
   object-fit: cover;
   position: absolute;
 }
@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .text-inside-image h2 {
@@ -19,7 +20,7 @@
 
 .post-request-form {
   background: rgba(240, 240, 240, 0.64);
-  padding: 40px;
+  padding: 20px 70px;
   position: relative;
 }
 
@@ -56,6 +57,15 @@ textarea {
   z-index: 1;
   left: 115px;
   width: 31em;
+}
+
+.error {
+  font-size: 11px;
+  color: red;
+  width: 20em;
+  margin-top: 0;
+  padding: 5px;
+  text-align: left;
 }
 
 @media screen and (max-width: 900px) {

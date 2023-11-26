@@ -1,62 +1,57 @@
-const endpoint =
-  "https://www.travelandexplore.no/wp-json/wp/v2/pages?slug=blog";
+const postsContainer = document.getElementById("postsContainer");
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+let page = 1;
+const perPage = 10;
 
-fetch(endpoint)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    if (data.length > 0) {
-      const blogPage = data[0];
-      const pageContent = blogPage.content.rendered;
+// Function to fetch and display posts
+async function fetchAndDisplayPosts() {
+  try {
+    const response = await fetch(
+      `https://travelandexplore.no/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`
+    );
+    const data = await response.json();
 
-      const blogContentElement = document.getElementById("blogContent");
-      blogContentElement.innerHTML = `
-            <div>${pageContent}</div>
-          `;
-    } else {
-      console.log('No data found for the "blog" page.');
+    if (data.length === 0) {
+      loadMoreBtn.style.display = "none";
+      return;
     }
-  })
-  .catch((error) => {
-    console.error("There was a problem with the fetch operation:", error);
+
+    displayPosts(data);
+    page++;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+  }
+}
+
+// Function to display posts
+function displayPosts(posts) {
+  posts.forEach((post) => {
+    const embeddedImage = post._embedded["wp:featuredmedia"];
+    if (embeddedImage && embeddedImage.length > 0) {
+      const imageUrl = embeddedImage[0].source_url;
+
+      const postContainer = document.createElement("div");
+      postContainer.classList.add("post-container");
+
+      const postLink = document.createElement("a");
+      postLink.href = `/html/specific-post.html?id=${post.id}`;
+
+      const image = document.createElement("img");
+      image.src = imageUrl;
+      image.alt = post.title.rendered;
+      postLink.appendChild(image);
+
+      const title = document.createElement("h1");
+      title.textContent = post.title.rendered;
+
+      postContainer.appendChild(postLink);
+      postContainer.appendChild(title);
+      postsContainer.appendChild(postContainer);
+    }
   });
+}
 
-// Fetch posts and create image elements with their respective post links
-const postsEndpoint = "http://travel-explore.local/wp-json/wp/v2/posts";
-const blogContentElement = document.getElementById("blogContent");
+loadMoreBtn.addEventListener("click", fetchAndDisplayPosts);
 
-fetch(postsEndpoint)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((posts) => {
-    posts.forEach((post) => {
-      const postImage = post.image_url; // Replace with the actual image URL property in your JSON data
-      const postLink = post.link; // Replace with the actual post link property in your JSON data
-
-      const imgElement = document.createElement("img");
-      imgElement.src = postImage;
-
-      const linkElement = document.createElement("a");
-      linkElement.href = postLink; // Link to the specific post page
-      linkElement.appendChild(imgElement);
-
-      // Add event listener to the image to navigate to its post page
-      imgElement.addEventListener("click", (event) => {
-        event.preventDefault();
-        window.location.href = postLink; // Redirect to the specific post page
-      });
-
-      blogContentElement.appendChild(linkElement);
-    });
-  })
-  .catch((error) => {
-    console.error("There was a problem with fetching posts:", error);
-  });
+// Initially load the first set of posts
+fetchAndDisplayPosts();

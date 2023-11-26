@@ -9,6 +9,8 @@
         content="Welcome to Travel & Explore. Here you will find information and tips about different destinations around the world!">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/carousel.js" defer></script>
+
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -53,35 +55,22 @@
                 your dreams of exploration come true.</p>
         </div>
         <div class="latest-posts-carousel">
-            <h2>Latest Posts:(example)</h2>
-            <div class="carousel">
-                <iconify-icon class="arrows" icon="ep:arrow-left-bold"></iconify-icon>
-                <div class="img-text">
-                    <img src="/images/Thailand-resized.jpg" alt="">
-                    <h2>Thailand</h2>
-                    <p>Thailand, a captivating Southeast Asian country, boasts a rich tapestry of culture, ancient
-                        traditions, and breathtaking
-                        landscapes. From the bustling cityscape of Bangkok, where...</p>
-                    <button>Read more</button>
+            <h2>Latest Posts:</h2>
+            <div class="container">
+                <div class="slider-wrapper">
+                    <button id="prev-btn" class="slide-button">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div id="carousel-container" class="carousel-container"></div>
+                    <button id="next-btn" class="slide-button">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="img-text">
-                    <img src="/images/greece-resized.jpg" alt="">
-                    <h2>Greece</h2>
-                    <p>Greece, a Mediterranean gem, boasts a rich tapestry of history and natural beauty that beckons
-                        travelers year-round. The
-                        best time to visit this enchanting country is in the...</p>
-                    <button>Read more</button>
+                <div class="slider-scrollbar">
+                    <div class="scrollbar-track">
+                        <div class="scrollbar-thumb"></div>
+                    </div>
                 </div>
-                <div class="img-text">
-                    <img src="/images/greece-resized.jpg" alt="">
-                    <h2>Greece</h2>
-                    <p>Greece, a Mediterranean gem, boasts a rich tapestry of history and natural beauty that beckons
-                        travelers year-round. The
-                        best time to visit this enchanting country is in the...</p>
-                    <button>Read more</button>
-                </div>
-                <iconify-icon class="arrows" icon="ep:arrow-right-bold"></iconify-icon>
-
             </div>
             <h3>Let us find your next destination!</h3>
         </div>

@@ -1,0 +1,39 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  padding-top: 10px;
+}
+
+#postContent {
+  padding-top: 204px;
+}
+
+#postContent h1 {
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+}
+
+.flex-container p {
+  width: 44em;
+  font-size: 17px;
+  text-align: justify;
+  padding: 0 15px !important;
+}
+
+.flex-container img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  height: auto;
+  width: 748px !important;
+}
+
+.flex-container figure {
+  display: contents;
+}
+
+.flex-container details {
+  width: 47em;
+}
