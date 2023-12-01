@@ -1,10 +1,16 @@
 .text-inside-image img {
   width: 50%;
-  height: 640px;
+  height: 715px;
   object-fit: cover;
+  position: relative;
 }
 
-.text-image {
+.text-inside-image {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  position: relative;
+  align-items: center;
 }
 
 .text-inside-image h2 {
@@ -16,7 +22,12 @@
 .post-request-form {
   background: rgba(240, 240, 240, 0.64);
   padding: 20px 70px;
-  position: relative;
+  position: absolute;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .post-request-form h3 {
@@ -45,7 +56,12 @@ textarea {
 }
 
 .over-text {
+  padding: 33px;
   background-color: #efeeea;
+  position: relative;
+  top: 53px;
+  z-index: 1;
+  left: 115px;
   width: 31em;
 }
 
@@ -66,12 +82,12 @@ textarea {
   }
 
   .text-inside-image img {
-    width: auto;
-    height: 29em;
+    width: 100%;
+    height: 630px;
   }
 
   .post-request-form {
-    padding: 10px;
+    padding: 10px 20px;
   }
 
   textarea {
@@ -82,5 +98,13 @@ textarea {
   .submit-btn {
     padding: inherit;
     text-align: center;
+  }
+
+  .text-inside-image h2 {
+    font-size: 18px;
+  }
+
+  .post-request-form h3 {
+    font-size: 16px;
   }
 }
