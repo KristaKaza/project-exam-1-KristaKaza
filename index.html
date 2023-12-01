@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/carousel.js" defer></script>
+    <!-- Hotjar Tracking Code for Travel-Blog -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 3767651, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
@@ -56,14 +68,17 @@
         </div>
         <div class="latest-posts-carousel">
             <h2>Latest Posts:</h2>
+            <div class="spinner-container">
+                <div class="spinner"></div>
+            </div>
             <div class="container">
                 <div class="slider-wrapper">
-                    <button id="prev-btn" class="slide-button">
-                        <i class="fa-solid fa-chevron-left"></i>
+                    <button id="prev-slide" class="slide-button material-symbols-rounded">
+                        ←
                     </button>
                     <div id="carousel-container" class="carousel-container"></div>
-                    <button id="next-btn" class="slide-button">
-                        <i class="fa-solid fa-chevron-right"></i>
+                    <button id="next-slide" class="slide-button material-symbols-rounded">
+                        →
                     </button>
                 </div>
                 <div class="slider-scrollbar">
@@ -72,6 +87,7 @@
                     </div>
                 </div>
             </div>
+
             <h3>Let us find your next destination!</h3>
         </div>
     </main>

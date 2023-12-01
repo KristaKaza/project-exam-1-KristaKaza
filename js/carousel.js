@@ -1,11 +1,12 @@
 const carouselContainer = document.getElementById("carousel-container");
+const spinnerContainer = document.querySelector(".spinner-container");
+
+// Show spinner while fetching posts
+spinnerContainer.style.display = "block";
 
 // Fetch posts and build carousel
 const perPage = 8;
 const page = 1;
-
-const prev = document.querySelector(".prev-btn");
-const next = document.querySelector(".next-btn");
 
 fetch(
   `https://travelandexplore.no/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`
@@ -14,9 +15,13 @@ fetch(
   .then((posts) => {
     buildCarousel(posts);
     initSlider();
+    // Hide spinner once posts are loaded
+    spinnerContainer.style.display = "none";
   })
   .catch((error) => {
     console.error("Error fetching posts:", error);
+    // Hide spinner in case of an error
+    spinnerContainer.style.display = "none";
   });
 
 function truncateText(text, maxWords) {
@@ -33,7 +38,7 @@ function truncateText(text, maxWords) {
 
 function buildCarousel(posts) {
   let carouselHTML = "";
-  const maxWordsInExcerpt = 30; // Maximum number of words in excerpt
+  const maxWordsInExcerpt = 30;
 
   posts.forEach((post) => {
     const imageUrl = post.jetpack_featured_media_url;
@@ -60,7 +65,9 @@ function buildCarousel(posts) {
 }
 
 const initSlider = () => {
-  const carouselContainer = document.getElementById("carousel-container");
+  const carouselContainer = document.querySelector(
+    ".slider-wrapper .carousel-container"
+  );
   const slideButtons = document.querySelectorAll(
     ".slider-wrapper .slide-button"
   );
@@ -83,6 +90,8 @@ const initSlider = () => {
     const handleMouseMove = (e) => {
       const deltaX = e.clientX - startX;
       const newThumbPosition = thumbPosition + deltaX;
+
+      // Ensure the scrollbar thumb stays within bounds
       const boundedPosition = Math.max(
         0,
         Math.min(maxThumbPosition, newThumbPosition)
@@ -99,7 +108,6 @@ const initSlider = () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-
     // Add event listeners for drag interaction
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
@@ -108,23 +116,18 @@ const initSlider = () => {
   // Slide images according to the slide button clicks
   slideButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const direction = button.id === "prev-btn" ? -1 : 1;
+      const direction = button.id === "prev-slide" ? -1 : 1;
       const scrollAmount = carouselContainer.clientWidth * direction;
-      carouselContainer.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth",
-      });
+      carouselContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
   });
-
+  // Show or hide slide buttons based on scroll position
   const handleSlideButtons = () => {
-    const isAtStart = carouselContainer.scrollLeft <= 0;
-    const isAtEnd = carouselContainer.scrollLeft >= maxScrollLeft;
-
-    slideButtons[0].style.display = isAtStart ? "none" : "flex";
-    slideButtons[1].style.display = isAtEnd ? "none" : "flex";
+    slideButtons[0].style.display =
+      carouselContainer.scrollLeft <= 0 ? "none" : "flex";
+    slideButtons[1].style.display =
+      carouselContainer.scrollLeft >= maxScrollLeft ? "none" : "flex";
   };
-
   // Update scrollbar thumb position based on image scroll
   const updateScrollThumbPosition = () => {
     const scrollPosition = carouselContainer.scrollLeft;
@@ -133,21 +136,11 @@ const initSlider = () => {
       (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
     scrollbarThumb.style.left = `${thumbPosition}px`;
   };
-
-  // Call these two functions when the carousel container is scrolled
+  // Call these two functions when image list scrolls
   carouselContainer.addEventListener("scroll", () => {
     updateScrollThumbPosition();
     handleSlideButtons();
   });
-
-  window.addEventListener("resize", () => {
-    handleSlideButtons(); // Update slide button visibility on window resize
-  });
-
-  window.addEventListener("load", () => {
-    handleSlideButtons(); // Initial check for slide button visibility on page load
-  });
 };
-
-// Call the initSlider function when the document is loaded
-window.addEventListener("DOMContentLoaded", initSlider);
+window.addEventListener("resize", initSlider);
+window.addEventListener("load", initSlider);

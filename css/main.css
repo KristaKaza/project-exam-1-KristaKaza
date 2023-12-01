@@ -268,3 +268,22 @@ footer {
     bottom: auto;
   }
 }
+
+/* Loader */
+
+.spinner {
+  height: 106px;
+  width: 106px;
+  border: 6px solid;
+  border-color: rgb(210 122 16) transparent rgb(221 122 16) transparent;
+  border-radius: 50%;
+  animation: spin 1.3s linear infinite;
+  margin: 30px;
+  text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

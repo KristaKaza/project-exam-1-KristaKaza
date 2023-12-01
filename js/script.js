@@ -1,30 +1,29 @@
 const postsContainer = document.getElementById("postsContainer");
 const loadMoreBtn = document.getElementById("loadMoreBtn");
+const spinner = document.querySelector(".spinner"); // Select the spinner element
 let page = 1;
 const perPage = 10;
+let allPostsLoaded = false;
 
-// Function to fetch and display posts
-async function fetchAndDisplayPosts() {
-  try {
-    const response = await fetch(
-      `https://travelandexplore.no/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`
-    );
-    const data = await response.json();
+// Function to display loader
+function showLoader() {
+  spinner.style.display = "block";
+}
 
-    if (data.length === 0) {
-      loadMoreBtn.style.display = "none";
-      return;
-    }
-
-    displayPosts(data);
-    page++;
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-  }
+// Function to hide loader
+function hideLoader() {
+  spinner.style.display = "none";
 }
 
 // Function to display posts
 function displayPosts(posts) {
+  if (!Array.isArray(posts) || posts.length === 0) {
+    allPostsLoaded = true;
+    loadMoreBtn.textContent = "No more posts";
+    loadMoreBtn.disabled = true;
+    return;
+  }
+
   posts.forEach((post) => {
     const embeddedImage = post._embedded["wp:featuredmedia"];
     if (embeddedImage && embeddedImage.length > 0) {
@@ -51,7 +50,31 @@ function displayPosts(posts) {
   });
 }
 
-loadMoreBtn.addEventListener("click", fetchAndDisplayPosts);
+// Function to fetch and display posts
+async function fetchAndDisplayPosts() {
+  try {
+    showLoader(); // Show loader when fetching posts
+    const response = await fetch(
+      `https://travelandexplore.no/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`
+    );
+    const data = await response.json();
+
+    displayPosts(data);
+    hideLoader(); // Hide loader once posts are loaded
+    page++;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    hideLoader(); // Ensure loader is hidden in case of error
+  }
+}
+
+loadMoreBtn.addEventListener("click", function () {
+  if (!allPostsLoaded) {
+    fetchAndDisplayPosts();
+  }
+});
 
 // Initially load the first set of posts
-fetchAndDisplayPosts();
+document.addEventListener("DOMContentLoaded", function () {
+  fetchAndDisplayPosts();
+});

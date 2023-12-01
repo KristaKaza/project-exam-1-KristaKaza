@@ -42,7 +42,9 @@
   font-size: 16px;
   font-family: "Poppins";
   border: 0;
-  margin-top: 65px;
+  display: flex;
+
+  align-items: center;
 }
 
 #loadMoreBtn:hover {

@@ -9,8 +9,19 @@
         content="Welcome to Travel & Explore. Here you will find information and tips about different destinations around the world!">
     <link rel="stylesheet" href="/css/specific-post.css">
     <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/modal.css">
     <script src="/js/specific-post.js" defer></script>
+    <!-- Hotjar Tracking Code for Travel-Blog -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 3767651, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
@@ -41,6 +52,12 @@
     </header>
     <main>
         <div id="postContent"></div>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-content">
+                <img id="expandedImg" src="" alt="Expanded Image" />
+            </div>
+        </div>
     </main>
     <footer>
         <section class="footer-travel">

@@ -9,6 +9,17 @@
         content="Welcome to Travel & Explore. Here you will find information and tips about different destinations around the world!">
     <link rel="stylesheet" href="/css/blog.css">
     <link rel="stylesheet" href="/css/main.css">
+    <!-- Hotjar Tracking Code for Travel-Blog -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 3767651, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -17,6 +28,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
     </style>
     <script src="/js/script.js" defer></script>
+    <script src="/js/modal.js" defer></script>
+
     <title>T&E Homepage</title>
 
 </head>
@@ -44,8 +57,13 @@
         </section>
         <div class="blog-container">
             <div id="postsContainer"></div>
-            <button id="loadMoreBtn">Load for more</button>
+            <div class="spinner-container">
+                <div class="spinner"></div>
+                <button id="loadMoreBtn">Load for more</button>
+
+            </div>
         </div>
+
         </div>
     </main>
     <footer>

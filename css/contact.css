@@ -2,14 +2,9 @@
   width: 50%;
   height: 640px;
   object-fit: cover;
-  position: absolute;
 }
 
-.text-inside-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 20px;
+.text-image {
 }
 
 .text-inside-image h2 {
@@ -50,12 +45,7 @@ textarea {
 }
 
 .over-text {
-  padding: 33px;
   background-color: #efeeea;
-  position: relative;
-  top: 53px;
-  z-index: 1;
-  left: 115px;
   width: 31em;
 }
 

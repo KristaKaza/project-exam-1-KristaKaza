@@ -16,16 +16,45 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
     const post = data;
 
     // Display the content of the fetched post
-    const postContent = post.content.rendered;
-    postContentElement.innerHTML = `<div class="flex-container">${postContent}</div>`;
-
     const title = document.createElement("h1");
-    title.textContent = post.title.rendered; // Access post title correctly
+    title.textContent = post.title.rendered;
+    const postContent = post.content.rendered;
+
+    postContentElement.innerHTML = `<div class="flex-container">${postContent}</div>`;
 
     // Append title to postContentElement
     postContentElement.insertBefore(title, postContentElement.firstChild);
-  })
 
+    // Function to display modal
+    function displayModal(imageUrl) {
+      const modal = document.getElementById("myModal");
+      const modalImg = document.getElementById("expandedImg");
+
+      modal.style.display = "block";
+      modalImg.src = imageUrl;
+
+      // Close modal when clicking on close button
+      const closeButton = document.getElementsByClassName("close")[0];
+      closeButton.onclick = () => {
+        modal.style.display = "none";
+      };
+
+      // Close modal when clicking outside the modal content
+      window.onclick = (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    }
+
+    // Find all img elements inside the post content and attach modal behavior
+    const imgs = postContentElement.querySelectorAll("img");
+    imgs.forEach((img) => {
+      img.addEventListener("click", () => {
+        displayModal(img.src);
+      });
+    });
+  })
   .catch((error) => {
     console.error("There was a problem with the fetch operation:", error);
   });
