@@ -1,6 +1,6 @@
 .text-inside-image img {
   width: 50%;
-  height: 715px;
+  height: 850px;
   object-fit: cover;
   position: relative;
 }
@@ -39,8 +39,8 @@ input {
 }
 
 textarea {
-  max-width: 330px;
-  max-height: 136px;
+  max-width: 320px;
+  max-height: 80px;
 }
 
 .submit-btn {
@@ -83,7 +83,7 @@ textarea {
 
   .text-inside-image img {
     width: 100%;
-    height: 630px;
+    height: 780px;
   }
 
   .post-request-form {
