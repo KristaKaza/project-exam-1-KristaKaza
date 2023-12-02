@@ -45,10 +45,9 @@
 
 .wp-block-verse {
   font-family: inherit;
-  text-wrap: balance;
   word-wrap: break-word;
   width: 22em;
-  font: 16px monospace;
+  white-space: normal;
 }
 
 .has-text-align-center p {
