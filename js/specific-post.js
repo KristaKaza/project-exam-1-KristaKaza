@@ -3,6 +3,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
 
 const postContentElement = document.getElementById("postContent");
+const additionalContent = document.createElement("div");
 
 // Fetch the specific post data using the WordPress REST API
 fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
