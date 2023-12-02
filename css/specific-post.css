@@ -109,7 +109,7 @@
   }
 
   #postContent img {
-    aspect-ratio: 1.5;
+    aspect-ratio: 0/0 !important;
     object-fit: cover;
     width: auto !important;
   }

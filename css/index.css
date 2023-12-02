@@ -255,7 +255,7 @@
 .carousel-item p {
   width: 20em;
   font-size: 14px;
-  text-align: justify;
+  text-align: left;
   margin-top: 0;
 }
 
