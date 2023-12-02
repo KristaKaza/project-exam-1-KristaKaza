@@ -30,3 +30,245 @@
 .latest-posts-carousel h2 {
   font-size: 17px;
 }
+
+.carousel img {
+  width: 308px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 30px;
+  align-items: center;
+}
+
+.latest-posts-carousel h3 {
+  font-size: 70px;
+  font-family: "Cookie", cursive;
+  font-weight: 100;
+  color: #0e93bb;
+  margin: 30px 0 0 0;
+}
+
+.img-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(208, 208, 208, 0.25);
+}
+
+.img-text p {
+  width: 20em;
+  max-width: 20em;
+  font-size: 14px;
+  padding: 5px 18px;
+  text-align: left;
+}
+
+.img-text h2 {
+  margin-bottom: 0;
+}
+
+.img-text button {
+  position: relative;
+  left: 89px;
+  background-color: unset;
+  border: 0;
+  font-size: 16px;
+  padding: 0 20px;
+  color: #000e17;
+  font-family: Poppins;
+}
+
+.img-text button:hover {
+  border-bottom: 1px solid black;
+  transition: ease-in 0.1s;
+  cursor: pointer;
+}
+
+.arrows {
+  font-size: 35px;
+}
+
+@media screen and (max-width: 900px) {
+  .introduction-container h1 {
+    font-size: 40px;
+    padding: 10px 50px;
+  }
+
+  .introduction-container p {
+    width: auto;
+    padding: 0 45px;
+  }
+
+  .latest-posts-carousel h3 {
+    font-size: 50px;
+    padding: 0 10px;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  width: 90%;
+}
+
+.slider-wrapper {
+  position: relative;
+}
+.slider-wrapper .slide-button {
+  position: absolute;
+  top: 50%;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  z-index: 5;
+  color: #fff;
+  display: flex;
+  cursor: pointer;
+  font-size: 2.2rem;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.slider-wrapper .slide-button:hover {
+  background: #404040;
+}
+.slider-wrapper .slide-button#prev-slide {
+  left: -25px;
+  display: none;
+}
+.slider-wrapper .slide-button#next-slide {
+  right: -25px;
+}
+.slider-wrapper .carousel-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 18px;
+  font-size: 0;
+  list-style: none;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.slider-wrapper .carousel-container::-webkit-scrollbar {
+  display: none;
+}
+.slider-wrapper .carousel-container .carousel-container {
+  width: 325px;
+  height: 400px;
+  object-fit: cover;
+}
+.container .slider-scrollbar {
+  height: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.slider-scrollbar .scrollbar-track {
+  background: #ccc;
+  width: 100%;
+  height: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+}
+.slider-scrollbar:hover .scrollbar-track {
+  height: 4px;
+}
+.slider-scrollbar .scrollbar-thumb {
+  position: absolute;
+  background: #000;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  cursor: grab;
+  border-radius: inherit;
+}
+.slider-scrollbar .scrollbar-thumb:active {
+  cursor: grabbing;
+  height: 8px;
+  top: -2px;
+}
+.slider-scrollbar .scrollbar-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .slider-wrapper #carousel-container {
+    gap: 10px;
+    margin-bottom: 15px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .slider-wrapper .carousel-container #carousel-container {
+    width: 280px;
+    height: 380px;
+  }
+
+  .slider-scrollbar .scrollbar-thumb,
+  .scrollbar-track {
+    display: none;
+  }
+}
+
+#carousel-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: fit-content;
+  padding: 20px;
+}
+
+.carousel-item:hover {
+  background-color: rgba(221, 221, 221, 0.729);
+  border-radius: 6px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/4;
+  object-fit: cover;
+}
+
+.carousel-item p {
+  width: 20em;
+  font-size: 14px;
+  text-align: justify;
+  margin-top: 0;
+}
+
+.carousel-item h2 {
+  margin-bottom: 0;
+}
+
+.carousel-item a {
+  font-size: 14px;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.carousel-item-link {
+  text-decoration: none;
+}
