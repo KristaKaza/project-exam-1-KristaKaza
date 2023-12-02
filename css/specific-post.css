@@ -16,6 +16,11 @@
   margin: 0;
 }
 
+.post-date {
+  text-align: center;
+  text-decoration: underline;
+}
+
 .flex-container p {
   width: 44em;
   font-size: 17px;
@@ -27,7 +32,7 @@
   aspect-ratio: 3/2;
   object-fit: cover;
   height: auto;
-  width: 748px !important;
+  width: 748px;
 }
 
 .flex-container figure {
@@ -36,4 +41,64 @@
 
 .flex-container details {
   width: 47em;
+}
+
+.wp-block-verse {
+  font-size: 16px;
+  font-family: inherit;
+  text-wrap: balance;
+  width: 22em;
+}
+
+.has-text-align-center p {
+  width: auto;
+}
+
+.wp-block-media-text,
+.is-stacked-on-mobile,
+.food-text {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 57px;
+  align-items: center;
+}
+
+.food-text img,
+.is-image-fill img,
+.wp-block-group-is-layout-constrained img {
+  width: 35%;
+  aspect-ratio: 5/3;
+}
+
+#closing-box,
+#subscribe-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 14px;
+  padding: 10px 0 25px;
+  background: #ebebeb;
+  border-radius: 23px;
+  margin-top: 40px;
+}
+
+#subscribe-box pre,
+.subscribe-box {
+  text-align: center;
+}
+
+#closing-box button,
+.wp-block-button {
+  padding: 10px 30px;
+  border-radius: 7px;
+  color: white;
+  text-align: center;
+}
+
+.wp-block-button__link {
+  background-color: #598a95 !important;
+  padding: 10px 30px;
+  border-radius: 7px;
 }

@@ -60,11 +60,11 @@ async function fetchAndDisplayPosts() {
     const data = await response.json();
 
     displayPosts(data);
-    hideLoader(); // Hide loader once posts are loaded
+    hideLoader();
     page++;
   } catch (error) {
     console.error("Error fetching posts:", error);
-    hideLoader(); // Ensure loader is hidden in case of error
+    hideLoader();
   }
 }
 

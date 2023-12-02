@@ -34,7 +34,10 @@
 <body>
     <header>
         <h1 class="logo"><a href="/index.html">Travel & Explore</a></h1>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <iconify-icon class="nav-icon" icon="fontisto:nav-icon-a" style="color: #ca7b52;">Navigation
+            </iconify-icon>
+        </label>
         <nav>
             <ul>
                 <li><a href='/index.html'>Home</a></li>
@@ -43,9 +46,7 @@
                 <li><a href='/html/contact.html'>Contact</a></li>
             </ul>
         </nav>
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-        </label>
+    </header>
     </header>
     <main>
         <section class="hero-img about-img-text">
@@ -120,10 +121,10 @@
                     <h3>Subscribe</h3>
                     <p>Join over 1 million people and get exclusive travel tips, giveaways and more!</p>
                     <div class="sign-up">
-                        <h4>FIRST NAME</h4>
-                        <input type="text" name="first-name" id="first-name">
-                        <h4>EMAIL ADDRESS</h4>
-                        <input type="email" name="email" id="email">
+                        <label for="name">FIRST NAME:</label>
+                        <input type="text" name="name" id="name" aria-labelledby="name">
+                        <label for="email">EMAIL:</label>
+                        <input type="email" name="email" id="email" aria-labelledby="email">
                         <h5>SIGN UP</h5>
                     </div>
                 </div>

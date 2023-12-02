@@ -62,6 +62,6 @@
 
 @media screen and (max-width: 900px) {
   #postsContainer img {
-    width: 100%;
+    width: 60%;
   }
 }

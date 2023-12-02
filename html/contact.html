@@ -24,7 +24,10 @@
 <body>
     <header>
         <h1 class="logo"><a href="/index.html">Travel & Explore</a></h1>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <iconify-icon class="nav-icon" icon="fontisto:nav-icon-a" style="color: #ca7b52;">Navigation
+            </iconify-icon>
+        </label>
         <nav>
             <ul>
                 <li><a href='/index.html'>Home</a></li>
@@ -33,9 +36,6 @@
                 <li><a href='/html/contact.html'>Contact</a></li>
             </ul>
         </nav>
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-        </label>
     </header>
     <main>
         <section class="hero-img about-img-text">
@@ -50,18 +50,27 @@
 
             <div class="post-request-form">
                 <h2>BLOG POST REQUEST</h2>
-                <h3>NAME</h3>
-                <input type="text" name="name" id="name">
+
+                <label for="name">NAME:</label>
+                <input type="text" name="name" id="name" aria-labelledby="name">
+
                 <p id="nameError" class="error"></p>
-                <h3>SUBJECT</h3>
-                <textarea name="subject" id="subject" cols="20" rows="7"></textarea>
+
+                <label for="subject">SUBJECT:</label>
+                <textarea name="subject" id="subject" cols="20" rows="7" aria-labelledby="subject"></textarea>
+
                 <p id="subjectError" class="error"></p>
-                <h3>EMAIL</h3>
-                <input type="email" name="email" id="email">
+
+                <label for="email">EMAIL:</label>
+                <input type="email" name="email" id="email" aria-labelledby="email">
+
                 <p id="emailError" class="error"></p>
-                <h3>MESSAGE</h3>
-                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+                <label for="message">MESSAGE:</label>
+                <textarea name="message" id="message" cols="30" rows="10" aria-labelledby="message"></textarea>
+
                 <p id="messageError" class="error"></p>
+
                 <h3 class="submit-btn" id="submitButton">SUBMIT</h3>
             </div>
         </div>

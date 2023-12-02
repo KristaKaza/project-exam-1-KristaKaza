@@ -15,15 +15,46 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
   .then((data) => {
     const post = data;
 
-    // Display the content of the fetched post
+    // Append the additional HTML content to the postContentElement
+    const postContent = document.createElement("div");
+    postContent.innerHTML = post.content.rendered;
+    postContent.classList.add("flex-container");
+
     const title = document.createElement("h1");
     title.textContent = post.title.rendered;
-    const postContent = post.content.rendered;
 
-    postContentElement.innerHTML = `<div class="flex-container">${postContent}</div>`;
+    const dateParagraph = document.createElement("p");
+    const postDate = new Date(post.date);
+    dateParagraph.textContent = `${postDate.toDateString()}`;
+    dateParagraph.classList.add("post-date");
 
-    // Append title to postContentElement
-    postContentElement.insertBefore(title, postContentElement.firstChild);
+    // Extract food-related content and add it to additional content
+    const foodElements = postContent.querySelectorAll(
+      ".wp-block-group.food-text"
+    );
+    foodElements.forEach((foodElement) => {
+      const foodBlock = document.createElement("div");
+      foodBlock.classList.add("food-block");
+
+      const foodImg = foodElement.querySelector("img");
+      const foodImageSrc = foodImg.getAttribute("src");
+      const foodDescription = foodElement.querySelector(".wp-block-verse");
+      const foodDescriptionText = foodDescription.textContent.trim();
+
+      const foodBlockContent = `
+        <img src="${foodImageSrc}" alt="Food Image">
+        <pre class="food-description">${foodDescriptionText}</p>
+      `;
+      foodBlock.innerHTML = foodBlockContent;
+
+      additionalContent.appendChild(foodBlock);
+    });
+
+    // Append title, date, post content, and additional content to postContentElement
+    postContentElement.appendChild(title);
+    postContentElement.appendChild(dateParagraph);
+    postContentElement.appendChild(postContent);
+    postContentElement.appendChild(additionalContent);
 
     // Function to display modal
     function displayModal(imageUrl) {

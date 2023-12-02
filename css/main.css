@@ -52,6 +52,10 @@ header {
   outline: 3px solid rgb(202 123 82, 0.55);
 }
 
+.nav-icon {
+  font-size: 21px;
+}
+
 .nav-toggle-label {
   position: absolute;
   top: 0;
@@ -141,13 +145,27 @@ nav a:hover {
   opacity: 1;
   transition: opacity 250ms ease-in-out 250ms;
 }
-
+#formInput1,
+#emptyInput {
+  display: none;
+}
+.visually-hidden,
+#visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 @media screen and (min-width: 900px) {
   .nav-toggle-label {
     display: none;
   }
 
-  header {
+  /* header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,7 +173,7 @@ nav a:hover {
     align-content: center;
     justify-content: flex-end;
     background: white;
-  }
+  } */
 
   .logo {
     font-size: 7rem;
@@ -199,6 +217,22 @@ nav a:hover {
 
   nav a:hover::before {
     transform: scale(1, 1);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  #formInput1,
+  #emptyInput {
+    display: none;
   }
 }
 

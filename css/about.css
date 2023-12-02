@@ -163,6 +163,16 @@
   padding: 10px 25px;
   font-size: 15px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.sign-up h5:hover {
+  background-color: #000;
+  color: white;
+}
+
+.sign-up label {
+  padding: 10px 0;
 }
 
 .side-image {
