@@ -15,7 +15,7 @@ function hideLoader() {
   spinner.style.display = "none";
 }
 
-// Function to display posts
+// Function to display posts with additional content
 function displayPosts(posts) {
   if (!Array.isArray(posts) || posts.length === 0) {
     allPostsLoaded = true;
@@ -45,6 +45,7 @@ function displayPosts(posts) {
 
       postContainer.appendChild(postLink);
       postContainer.appendChild(title);
+
       postsContainer.appendChild(postContainer);
     }
   });

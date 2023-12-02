@@ -3,7 +3,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
 
 const postContentElement = document.getElementById("postContent");
-const additionalContent = document.createElement("div");
 
 // Fetch the specific post data using the WordPress REST API
 fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
@@ -28,6 +27,10 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
     const postDate = new Date(post.date);
     dateParagraph.textContent = `${postDate.toDateString()}`;
     dateParagraph.classList.add("post-date");
+
+    // Create a div to hold the additional HTML content
+    const additionalContent = document.createElement("div");
+    additionalContent.classList.add("food-section");
 
     // Extract food-related content and add it to additional content
     const foodElements = postContent.querySelectorAll(

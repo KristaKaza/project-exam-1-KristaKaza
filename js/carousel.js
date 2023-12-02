@@ -15,12 +15,10 @@ fetch(
   .then((posts) => {
     buildCarousel(posts);
     initSlider();
-    // Hide spinner once posts are loaded
     spinnerContainer.style.display = "none";
   })
   .catch((error) => {
     console.error("Error fetching posts:", error);
-    // Hide spinner in case of an error
     spinnerContainer.style.display = "none";
   });
 

@@ -47,6 +47,8 @@
   font-size: 16px;
   font-family: inherit;
   text-wrap: balance;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   width: 22em;
 }
 
@@ -133,4 +135,11 @@
     padding: 0px 14px;
     text-align: center;
   }
+}
+
+.latest-posts-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
 }
