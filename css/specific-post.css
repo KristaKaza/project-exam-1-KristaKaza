@@ -47,7 +47,7 @@
   font-size: 16px;
   font-family: inherit;
   text-wrap: balance;
-  word-wrap: break-word;
+  word-wrap: normal;
   overflow-wrap: break-word;
   width: 22em;
 }
