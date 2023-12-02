@@ -102,3 +102,34 @@
   padding: 10px 30px;
   border-radius: 7px;
 }
+
+@media screen and (max-width: 780px) {
+  #postContent {
+    padding-top: 151px;
+  }
+
+  #postContent img {
+    aspect-ratio: 1.5;
+    object-fit: cover;
+    width: auto !important;
+  }
+
+  .flex-container p {
+    width: auto;
+  }
+
+  .flex-container details {
+    width: auto;
+  }
+  .wp-block-media-text img,
+  .is-stacked-on-mobile img,
+  .food-text img {
+    width: 67%;
+  }
+
+  .wp-block-verse {
+    width: auto;
+    padding: 0px 14px;
+    text-align: center;
+  }
+}
