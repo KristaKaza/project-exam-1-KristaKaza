@@ -24,9 +24,8 @@ body {
   font-family: "Cookie", cursive;
   font-weight: 400;
   letter-spacing: 3.75px;
-  word-wrap: break-word;
   width: fit-content;
-  margin: 12px;
+  margin: 12px 50px;
 }
 
 header {
