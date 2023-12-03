@@ -96,7 +96,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .introduction-container h1 {
+  .introduction-container h2 {
     font-size: 40px;
     padding: 10px 50px;
   }
@@ -223,6 +223,10 @@
   .slider-scrollbar .scrollbar-thumb,
   .scrollbar-track {
     display: none;
+  }
+
+  .slider-wrapper .slide-button#next-slide {
+    right: -15px;
   }
 }
 

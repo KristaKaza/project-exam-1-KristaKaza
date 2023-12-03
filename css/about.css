@@ -53,16 +53,19 @@
 
 .fav-places-box {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding-top: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.fav-places-box h2 {
+.title-box {
   font-family: "Cookie", cursive;
   font-size: 45px;
   font-weight: 300;
   color: #ca7b52;
+  text-align: center;
 }
 
 .fav-container,
@@ -91,12 +94,24 @@
   font-family: "Poppins", cursive;
 }
 
+.list-row li li,
+.list-row ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
 .list-row h3 {
   font-family: "Cookie", cursive;
   font-size: 40px;
   font-weight: 300;
   color: #ca7b52;
   margin: 0;
+}
+
+.list-row ul li {
+  list-style: none;
 }
 
 .subscribe-container {
