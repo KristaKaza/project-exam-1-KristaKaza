@@ -55,7 +55,7 @@ function displayPosts(posts) {
 function displayErrorMessage(message) {
   const errorMessage = document.createElement("p");
   errorMessage.textContent = message;
-  postsContainer.innerHTML = ""; // Clear existing posts
+  postsContainer.innerHTML = "";
   postsContainer.appendChild(errorMessage);
 }
 
@@ -74,9 +74,6 @@ async function fetchAndDisplayPosts() {
   } catch (error) {
     console.error("Error fetching posts:", error);
     hideLoader();
-    displayErrorMessage(
-      "There was a problem fetching posts. Please try again later."
-    ); // Display error message
   }
 }
 
