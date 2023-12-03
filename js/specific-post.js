@@ -1,5 +1,5 @@
 function setDocumentTitle(title) {
-  document.title = `Travel & Explore | ${post.title.rendered}`;
+  document.title = `Travel & Explore | ${title}`;
 }
 
 // Get the post ID from the URL parameters
@@ -19,6 +19,8 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
 
   .then((data) => {
     const post = data;
+
+    setDocumentTitle(post.title.rendered);
 
     // Append the additional HTML content to the postContentElement
     const postContent = document.createElement("div");
