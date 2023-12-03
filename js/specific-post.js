@@ -2,99 +2,99 @@ function setDocumentTitle(title) {
   document.title = `Travel-Explore | ${title}`;
 }
 
-// Get the post ID from the URL parameters
-const urlParams = new URLSearchParams(window.location.search);
-const postId = urlParams.get("id");
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get("id");
+  const postContentElement = document.getElementById("postContent");
 
-const postContentElement = document.getElementById("postContent");
+  fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const post = data;
+      const postTitle = post.title.rendered;
 
-// Fetch the specific post data using the WordPress REST API
-fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    const post = data;
-    console.log(post.title.rendered);
+      // Set document title
+      setDocumentTitle(postTitle);
 
-    setDocumentTitle(post.title.rendered);
+      // Append the additional HTML content to the postContentElement
+      const postContent = document.createElement("div");
+      postContent.innerHTML = post.content.rendered;
+      postContent.classList.add("flex-container");
 
-    // Append the additional HTML content to the postContentElement
-    const postContent = document.createElement("div");
-    postContent.innerHTML = post.content.rendered;
-    postContent.classList.add("flex-container");
+      const title = document.createElement("h1");
+      title.textContent = post.title.rendered;
 
-    const title = document.createElement("h1");
-    title.textContent = post.title.rendered;
+      const dateParagraph = document.createElement("p");
+      const postDate = new Date(post.date);
+      dateParagraph.textContent = `${postDate.toDateString()}`;
+      dateParagraph.classList.add("post-date");
 
-    const dateParagraph = document.createElement("p");
-    const postDate = new Date(post.date);
-    dateParagraph.textContent = `${postDate.toDateString()}`;
-    dateParagraph.classList.add("post-date");
+      const additionalContent = document.createElement("div");
+      additionalContent.classList.add("food-section");
 
-    const additionalContent = document.createElement("div");
-    additionalContent.classList.add("food-section");
+      const foodElements = postContent.querySelectorAll(
+        ".wp-block-group.food-text"
+      );
+      foodElements.forEach((foodElement) => {
+        const foodBlock = document.createElement("div");
+        foodBlock.classList.add("food-block");
 
-    const foodElements = postContent.querySelectorAll(
-      ".wp-block-group.food-text"
-    );
-    foodElements.forEach((foodElement) => {
-      const foodBlock = document.createElement("div");
-      foodBlock.classList.add("food-block");
+        const foodImg = foodElement.querySelector("img");
+        const foodImageSrc = foodImg.getAttribute("src");
+        const foodDescription = foodElement.querySelector(".wp-block-verse");
+        const foodDescriptionText = foodDescription.textContent.trim();
 
-      const foodImg = foodElement.querySelector("img");
-      const foodImageSrc = foodImg.getAttribute("src");
-      const foodDescription = foodElement.querySelector(".wp-block-verse");
-      const foodDescriptionText = foodDescription.textContent.trim();
-
-      const foodBlockContent = `
+        const foodBlockContent = `
         <img src="${foodImageSrc}" alt="Food Image">
         <pre class="food-description">${foodDescriptionText}</p>
       `;
-      foodBlock.innerHTML = foodBlockContent;
+        foodBlock.innerHTML = foodBlockContent;
 
-      additionalContent.appendChild(foodBlock);
-    });
-
-    // Append title, date, post content, and additional content to postContentElement
-    postContentElement.appendChild(title);
-    postContentElement.appendChild(dateParagraph);
-    postContentElement.appendChild(postContent);
-    postContentElement.appendChild(additionalContent);
-
-    // Function to display modal
-    function displayModal(imageUrl) {
-      const modal = document.getElementById("myModal");
-      const modalImg = document.getElementById("expandedImg");
-
-      modal.style.display = "block";
-      modalImg.src = imageUrl;
-
-      // Close modal when clicking on close button
-      const closeButton = document.getElementsByClassName("close")[0];
-      closeButton.onclick = () => {
-        modal.style.display = "none";
-      };
-
-      // Close modal when clicking outside the modal content
-      window.onclick = (event) => {
-        if (event.target === modal) {
-          modal.style.display = "none";
-        }
-      };
-    }
-
-    // Find all img elements inside the post content and attach modal behavior
-    const imgs = postContentElement.querySelectorAll("img");
-    imgs.forEach((img) => {
-      img.addEventListener("click", () => {
-        displayModal(img.src);
+        additionalContent.appendChild(foodBlock);
       });
+
+      // Append title, date, post content, and additional content to postContentElement
+      postContentElement.appendChild(title);
+      postContentElement.appendChild(dateParagraph);
+      postContentElement.appendChild(postContent);
+      postContentElement.appendChild(additionalContent);
+
+      // Function to display modal
+      function displayModal(imageUrl) {
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("expandedImg");
+
+        modal.style.display = "block";
+        modalImg.src = imageUrl;
+
+        // Close modal when clicking on close button
+        const closeButton = document.getElementsByClassName("close")[0];
+        closeButton.onclick = () => {
+          modal.style.display = "none";
+        };
+
+        // Close modal when clicking outside the modal content
+        window.onclick = (event) => {
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        };
+      }
+
+      // Find all img elements inside the post content and attach modal behavior
+      const imgs = postContentElement.querySelectorAll("img");
+      imgs.forEach((img) => {
+        img.addEventListener("click", () => {
+          displayModal(img.src);
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
     });
-  })
-  .catch((error) => {
-    console.error("There was a problem with the fetch operation:", error);
-  });
+});
