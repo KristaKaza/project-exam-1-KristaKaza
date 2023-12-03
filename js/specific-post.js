@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       postContent.classList.add("flex-container");
 
       const title = document.createElement("h1");
-      title.textContent = post.title.rendered;
+      title.textContent = postTitle;
 
       const dateParagraph = document.createElement("p");
       const postDate = new Date(post.date);
