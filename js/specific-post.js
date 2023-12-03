@@ -17,7 +17,7 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
     const post = data;
 
     // Set the document title with the post title
-    document.title = `Travel & Explore | ${post.title.rendered}`;
+    document.title = `Travel & Explore | ${post.title}`;
 
     // Append the additional HTML content to the postContentElement
     const postContent = document.createElement("div");
