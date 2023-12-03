@@ -16,6 +16,9 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
   .then((data) => {
     const post = data;
 
+    // Set the document title with the post title
+    document.title = `Travel & Explore | ${post.title.rendered}`;
+
     // Append the additional HTML content to the postContentElement
     const postContent = document.createElement("div");
     postContent.innerHTML = post.content.rendered;
@@ -29,11 +32,9 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
     dateParagraph.textContent = `${postDate.toDateString()}`;
     dateParagraph.classList.add("post-date");
 
-    // Create a div to hold the additional HTML content
     const additionalContent = document.createElement("div");
     additionalContent.classList.add("food-section");
 
-    // Extract food-related content and add it to additional content
     const foodElements = postContent.querySelectorAll(
       ".wp-block-group.food-text"
     );
