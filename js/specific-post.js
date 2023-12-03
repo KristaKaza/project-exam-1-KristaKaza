@@ -1,5 +1,5 @@
 function setDocumentTitle(title) {
-  document.title = `Travel & Explore | ${title}`;
+  document.title = `Travel & Explore | ${post.title.rendered}`;
 }
 
 // Get the post ID from the URL parameters
