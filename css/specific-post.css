@@ -110,6 +110,16 @@
   border-radius: 7px;
 }
 
+.more-posts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 70px;
+  text-decoration: none;
+  color: #0e93bb;
+  font-size: 19px;
+}
+
 @media screen and (max-width: 780px) {
   #postContent {
     padding-top: 151px;

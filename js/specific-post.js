@@ -4,6 +4,8 @@ const postId = urlParams.get("id");
 
 const postContentElement = document.getElementById("postContent");
 
+import { displayError } from "./errorDisplay.js";
+
 // Fetch the specific post data using the WordPress REST API
 fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
   .then((response) => {
@@ -12,6 +14,7 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
     }
     return response.json();
   })
+
   .then((data) => {
     const post = data;
 
@@ -91,5 +94,9 @@ fetch(`https://travelandexplore.no/wp-json/wp/v2/posts/${postId}`)
     });
   })
   .catch((error) => {
+    displayError(
+      `There was a problem with the fetch operation: ${error}`,
+      "errorDisplay"
+    );
     console.error("There was a problem with the fetch operation:", error);
   });
