@@ -24,7 +24,7 @@
 .flex-container p {
   width: 44em;
   font-size: 17px;
-  text-align: justify;
+  text-align: center;
   padding: 0 15px !important;
 }
 
@@ -41,6 +41,13 @@
 
 .flex-container details {
   width: 47em;
+
+  text-align: left;
+}
+
+.flex-container li {
+  text-align: left;
+  padding: 10px;
 }
 
 .wp-block-verse {

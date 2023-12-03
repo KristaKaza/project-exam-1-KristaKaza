@@ -172,7 +172,7 @@
   color: black;
 }
 
-.sign-up h5 {
+.sign-up h4 {
   border: 1px solid black;
   width: fit-content;
   padding: 10px 25px;
@@ -181,7 +181,7 @@
   cursor: pointer;
 }
 
-.sign-up h5:hover {
+.sign-up h4:hover {
   background-color: #000;
   color: white;
 }
