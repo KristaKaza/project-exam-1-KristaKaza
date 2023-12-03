@@ -40,7 +40,7 @@ function displayPosts(posts) {
       image.alt = post.title.rendered;
       postLink.appendChild(image);
 
-      const title = document.createElement("h1");
+      const title = document.createElement("h2");
       title.textContent = post.title.rendered;
 
       postContainer.appendChild(postLink);
